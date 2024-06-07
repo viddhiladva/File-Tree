@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import FileTree from './components/FileTree';
 
-function App() {
+const App = () => {
+  const fileStructure = {
+    name: "My workspace",
+    type: "dir",
+    children: [
+      {
+        name: "Design projects",
+        type: "dir",
+        children: [
+          {
+            name: "App Redesign",
+            type: "file"
+          }
+        ]
+      },
+      {
+        name: "Development",
+        type: "dir",
+        children: [
+          {
+            name: "Frontend Tasks",
+            type: "file"
+          },
+        ]
+      },
+      {
+        name: "Marketing",
+        type: "file"
+      },
+      {
+        name: "Sales pitch",
+        type: "file"
+      }
+    ]
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FileTree root={fileStructure} />
     </div>
   );
-}
+};
 
 export default App;
